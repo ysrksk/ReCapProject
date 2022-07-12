@@ -21,17 +21,38 @@ namespace ConsoleUI
                 Description = "5 günlük kiralandı. Hatası bulunmamaktadır. Depo full olarak verildi"
             };
 
-            //carManager.Add(car12); 
+            UserManager userManager = new UserManager(new EfUserDal());
+            User user1 = new User()
+            {
+                FistName = "Yaşar",
+                LastName = "Küskü",
+                Email ="sdasdas@hotmail.com",
+                Password ="1232145"
+            };
+
+            userManager.Add(user1);
+
+            CustomerManager customerManager = new CustomerManager(new EfCustomerDal());
+            Customer customer1 = new Customer()
+            {
+                CompanyName = "Küskü",
+                UserId = 1
+            };
+
+            customerManager.Add(customer1);
+            Console.WriteLine("Customer Added");
+
+            //carManager.Add(car2); 
             //Console.WriteLine("Giriş Başarılı");
             
-            var result = carManager.Get(1);
-            result.ModelYear = 2021;
-            carManager.Update(result);
+            //var result = carManager.Get(1).Data;
+            //result.ModelYear = 2021;
+            //carManager.Update(result);
 
-            foreach (var car in carManager.GetAll())
-            {
-                Console.WriteLine(car.ModelYear);
-            }
+            //foreach (var car in carManager.GetAll().Data)
+            //{
+            //    Console.WriteLine(car.ModelYear);
+            //}
 
             //ColorManager colorManager = new ColorManager(new EfColorDal());
             
@@ -42,10 +63,10 @@ namespace ConsoleUI
             //}
 
 
-            foreach (var car in carManager.GetCarDetails())
-            {
-                Console.WriteLine(car.CarId + " " + car.BrandName + " " + car.ColorName + " " + car.DailyPrice);
-            }
+            //foreach (var car in carManager.GetCarDetails().Data)
+            //{
+            //    Console.WriteLine(car.CarId + " " + car.BrandName + " " + car.ColorName + " " + car.DailyPrice);
+            //}
         }
     }
 }
