@@ -21,16 +21,9 @@ namespace ConsoleUI
                 Description = "5 günlük kiralandı. Hatası bulunmamaktadır. Depo full olarak verildi"
             };
 
-            UserManager userManager = new UserManager(new EfUserDal());
-            User user1 = new User()
-            {
-                FistName = "Yaşar",
-                LastName = "Küskü",
-                Email ="sdasdas@hotmail.com",
-                Password ="1232145"
-            };
 
-            userManager.Add(user1);
+
+
 
             CustomerManager customerManager = new CustomerManager(new EfCustomerDal());
             Customer customer1 = new Customer()

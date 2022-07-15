@@ -8,6 +8,7 @@ using System.Text;
 using System.Linq;
 using Core.Utulities.Results;
 using Business.Constants;
+using Business.BusinessAspect.Autofac;
 
 namespace Business.Concrete
 {
@@ -19,6 +20,7 @@ namespace Business.Concrete
             _carDal = carDal;
         }
 
+        [SecuredOperation("admin")]
         public IResult Add(Car car)
         {
             if (car.Description.Length < 2)

@@ -44,7 +44,7 @@ namespace Business.Concrete
 
         public IDataResult<List<CarImage>> GetAll()
         {
-            throw new NotImplementedException();
+            return new SuccessDataResult<List<CarImage>>(_carImageDal.GetAll());
         }
 
         public IDataResult<List<CarImage>> GetByCarId(int carId)
@@ -54,7 +54,7 @@ namespace Business.Concrete
 
         public IDataResult<CarImage> GetByImageId(int imageId)
         {
-            throw new NotImplementedException();
+            return new SuccessDataResult<CarImage>(_carImageDal.Get(i => i.Id == imageId));
         }
 
         public IResult Update(IFormFile file, CarImage carImage)

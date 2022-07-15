@@ -1,4 +1,5 @@
 ﻿using Business.Abstract;
+using Business.BusinessAspect.Autofac;
 using Business.Constants;
 using Core.Utulities.Results;
 using DataAccess.Abstract;
@@ -16,6 +17,8 @@ namespace Business.Concrete
         {
             _brandDal = brandDal;
         }
+
+        [SecuredOperation("admin")]
         public IResult Add(Brand brand)
         {
             if (brand.BrandName.Length < 2)
