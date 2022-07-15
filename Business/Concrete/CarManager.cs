@@ -20,7 +20,7 @@ namespace Business.Concrete
             _carDal = carDal;
         }
 
-        [SecuredOperation("admin")]
+        [SecuredOperation("product.add,admin")]
         public IResult Add(Car car)
         {
             if (car.Description.Length < 2)
